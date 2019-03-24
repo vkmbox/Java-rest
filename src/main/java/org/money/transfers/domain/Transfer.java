@@ -21,26 +21,26 @@ import javax.validation.constraints.NotNull;
 @Table(name="transaction_log")
 public class Transfer
 {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "id", updatable = false, nullable = false)
-  private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
+    private Long id;
 
-  @NotNull
-  @OneToOne
-  @JoinColumn(name = "account_debit", updatable = false, nullable = false)
-  private ClientAccount accountDebit;
-  
-  @NotNull
-  @OneToOne
-  @JoinColumn(name = "account_credit", updatable = false, nullable = false)
-  private ClientAccount accountCredit;
-  
-  @NotNull
-  @Column(name = "transaction_date", updatable = false, nullable = false)
-  private OffsetDateTime transactionDate;
-  
-  @Column(name = "amount",nullable = false)
-  private BigDecimal amount = BigDecimal.ZERO;
+    @NotNull
+    @OneToOne
+    @JoinColumn(name = "account_debit", updatable = false, nullable = false)
+    private ClientAccount accountDebit;
+
+    @NotNull
+    @OneToOne
+    @JoinColumn(name = "account_credit", updatable = false, nullable = false)
+    private ClientAccount accountCredit;
+
+    @NotNull
+    @Column(name = "transaction_date", updatable = false, nullable = false)
+    private OffsetDateTime transactionDate;
+
+    @Column(name = "amount",nullable = false)
+    private BigDecimal amount = BigDecimal.ZERO;
   
 }

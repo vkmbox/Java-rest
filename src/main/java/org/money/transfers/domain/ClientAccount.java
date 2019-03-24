@@ -19,21 +19,21 @@ import javax.validation.constraints.PositiveOrZero;
 @Table(name="client_account")
 public class ClientAccount
 {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "id", updatable = false, nullable = false)
-  private Long id;
-  
-  @NotNull
-  @Column(name = "code",nullable = false)
-  private String code;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
+    private Long id;
 
-  @Column(name = "description",nullable = true)
-  private String description;
-  
-  @NotNull
-  @PositiveOrZero
-  @Column(name = "overdraft",nullable = false)
-  private BigDecimal overdraft = BigDecimal.ZERO;
+    @NotNull
+    @Column(name = "code",nullable = false)
+    private String code;
+
+    @Column(name = "description",nullable = true)
+    private String description;
+
+    @NotNull
+    @PositiveOrZero
+    @Column(name = "overdraft",nullable = false)
+    private BigDecimal overdraft = BigDecimal.ZERO;
   
 }

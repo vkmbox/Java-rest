@@ -1,11 +1,12 @@
 package org.money.transfers.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 import lombok.Getter;
 import lombok.Setter;
 import org.money.transfers.domain.Transfer;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 
 @Getter @Setter
 public class TransferDto

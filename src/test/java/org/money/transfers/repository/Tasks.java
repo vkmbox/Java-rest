@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class Tasks {
     String accountName1 = "Account-1";
     String accountName2 = "Account-2";
+    String accountName3 = "Account-3";
 
     @Autowired
     private AccountBalanceRepository repository;
@@ -25,6 +26,15 @@ public class Tasks {
     public void lockAccount2() {
         try {
             repository.getBalanceByAccountCodeForWrite(accountName2);
+            Thread.sleep(5000);
+        } catch (InterruptedException ex) {
+            System.out.println(ex.toString());
+        }
+    }
+    
+    public void lockAccount3() {
+        try {
+            repository.getBalanceByAccountCodeForWrite(accountName3);
             Thread.sleep(5000);
         } catch (InterruptedException ex) {
             System.out.println(ex.toString());

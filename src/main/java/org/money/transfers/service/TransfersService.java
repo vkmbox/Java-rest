@@ -32,7 +32,7 @@ public class TransfersService
     }
     
     @Transactional
-    public void saveTransaction(TransferDto dto) {
+    public Long saveTransaction(TransferDto dto) {
         AccountBalance debit, credit;
         if ( dto.getAccountDebit().compareTo(dto.getAccountCredit()) < 0 ) {
             debit = lockAccount(dto.getAccountDebit());
@@ -53,9 +53,10 @@ public class TransfersService
         debit.setBalance(debit.getBalance().subtract(dto.getAmount()));
         credit.setBalance(credit.getBalance().add(dto.getAmount()));
         
-        transfers.save(transfer);
+        Transfer result = transfers.save(transfer);
         balances.save(debit);
         balances.save(credit);
+        return result.getId();
     }
     
     private AccountBalance lockAccount( String accountCode ) {
